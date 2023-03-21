@@ -13,3 +13,23 @@
 </ul>
 
 ## Passo a passo do backend
+
+### Instalar as Gems
+
+```bundle install```
+
+### Criar o Banco de Dados (DB)
+
+```rails db:create```
+
+### Migrar o Banco de Dados (DB)
+
+```rails db:migrate```
+
+### Popular o Banco de Dados (DB)
+
+```rails db:seed```
+
+### Subir o Servidor
+
+```rails s -p 8080```
