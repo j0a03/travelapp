@@ -12,7 +12,9 @@
  <li> Seguir o passo a passo para instalar </li>
 </ul>
 
-## Passo a passo do backend
+## <bold> Passo a passo do BackEnd </bold>
+
+### Entrar na pasta do BackEnd <bold> (CMD) </bold>
 
 ### Instalar as Gems
 
