@@ -34,4 +34,4 @@
 
 ### Subir o Servidor
 
-```rails s -p 8080```
+```rails s -p 3001```
