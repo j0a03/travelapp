@@ -14,7 +14,7 @@
 
 ## <bold> Passo a passo do BackEnd </bold>
 
-### Entrar na pasta do BackEnd <bold> (CMD) </bold>
+### Entrar na pasta do BackEnd (CMD)
 
 ### Instalar as Gems
 
