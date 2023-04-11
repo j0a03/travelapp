@@ -11,7 +11,13 @@ function App(){
   },[])
 
   return(
-      <div>App</div>
+      <div>
+        {
+          viagens.map(v=>
+            <h1>{v.nome}</h1>
+          )
+        }
+      </div>
   )
 }
 export default App
