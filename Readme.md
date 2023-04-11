@@ -35,3 +35,19 @@
 ### Subir o Servidor
 
 ```rails s -p 3001```
+
+#FRONTEND
+
+## Passo a Passo para instalar o front
+
+### Entrar na pasta em outro cmd
+
+```cd frontend```
+
+### Instalar as dependencias
+
+```npm install```
+
+### Iniciar o front
+
+```npm start```
