@@ -48,6 +48,6 @@
 
 ```npm install```
 
-### Iniciar o front
+### Iniciar o React
 
 ```npm start```
