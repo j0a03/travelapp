@@ -9,6 +9,9 @@
     padding: 10px;
     margin: 10px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .card h1{
     color:#D9BC66;
