@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {useState,useEffect} from 'react';
 import Form from './components/Form';
-
+import Card from './components/Card';
 function App(){
   const [travel,setTravel] = useState({
     nome: '',
@@ -37,7 +37,7 @@ function App(){
           setTravel={setTravel}
           EnvioFormulario={EnvioFormulario}        
         />
-        
+      <div className='cards'>
         {
           viagens.map(v=>
             <Card
@@ -45,6 +45,7 @@ function App(){
             />
           )
         }
+        </div>
       </div>
   )
 }
