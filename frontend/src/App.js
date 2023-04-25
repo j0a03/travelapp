@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {useState,useEffect} from 'react';
+import Form from './components/Form';
 
 function App(){
   const [travel,setTravel] = useState({
@@ -31,20 +32,17 @@ function App(){
   }
   return(
       <div>
-        <form onSubmit={EnvioFormulario}>
-          <label>Nome</label>
-          <input
-            id="nome"
-            required
-            onChange={(e)=>setTravel({...travel,nome: e.target.value})}
-            value={travel.nome}
-            placeholder='Digite o nome da viagem'
-          />
-          <button type='submit'>Cadastrar Viagem</button>
-        </form>
+        <Form
+          travel={travel}
+          setTravel={setTravel}
+          EnvioFormulario={EnvioFormulario}        
+        />
+        
         {
           viagens.map(v=>
-            <h1>{v.nome}</h1>
+            <Card
+              nome={v.nome}
+            />
           )
         }
       </div>
