@@ -30,6 +30,7 @@ function App(){
     axios.delete(`http://localhost:3001/api/v1/travels/${id}`)
     .then(res=>{
       console.log(res.data)
+      setViagens(viagens.filter(v => v.id !== id))
     })
     .catch(error=>console.error("erro ao deletar"))
   }
@@ -48,8 +49,12 @@ function App(){
         {
           viagens.map(v=>
             <Card
-            deletarViagem = {deleteTravel}
-            nome={v.nome}
+              deletarViagem = {deleteTravel}
+              nome={v.nome}
+              id={v.id}
+              data={v.data}
+              desc={v.desc}
+              price={v.price}
             />
           )
         }
