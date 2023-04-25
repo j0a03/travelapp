@@ -26,6 +26,13 @@ function App(){
 
  
   } 
+  const deleteTravel = (id)=>{
+    axios.delete(`http://localhost:3001/api/v1/travels/${id}`)
+    .then(res=>{
+      console.log(res.data)
+    })
+    .catch(error=>console.error("erro ao deletar"))
+  }
   function EnvioFormulario(e){
     e.preventDefault()
     cadastrarViagem(travel)
@@ -41,7 +48,8 @@ function App(){
         {
           viagens.map(v=>
             <Card
-              nome={v.nome}
+            deletarViagem = {deleteTravel}
+            nome={v.nome}
             />
           )
         }
