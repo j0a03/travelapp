@@ -1,6 +1,7 @@
 import './Form.css';
 
-function Form({travel,EnvioFormulario,setTravel}) {
+function Form({travel,EnvioFormulario,setTravel,id}) {
+    
     return (
         <div className='divForm'>
             <form onSubmit={EnvioFormulario}>

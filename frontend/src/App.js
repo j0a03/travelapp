@@ -30,7 +30,7 @@ function App(){
     axios.delete(`http://localhost:3001/api/v1/travels/${id}`)
     .then(res=>{
       console.log(res.data)
-      setViagens(viagens.filter(v => v.id !== id))
+      setViagens(viagens.filter(v => v.id === id))
     })
     .catch(error=>console.error("erro ao deletar"))
   }
@@ -38,12 +38,16 @@ function App(){
     e.preventDefault()
     cadastrarViagem(travel)
   }
-  console.log(viagens);
+  const [viagemAtual, setViagemAtual] = useState({})
+  function acharViagem(id){
+    setViagemAtual(viagens.filter(v =>v.id === id)[0])
+  }
   return(
       <div>
         <Form
           id={editID}
           travel={travel}
+          viagemAtual={viagemAtual}
           setTravel={setTravel}
           EnvioFormulario={EnvioFormulario}        
         />
@@ -51,6 +55,7 @@ function App(){
         {
           viagens.map(v=><Card
           key={v.id}
+            acharViagem={acharViagem}
             deletarViagem = {deleteTravel}
             nome={v.nome}
             id={v.id}

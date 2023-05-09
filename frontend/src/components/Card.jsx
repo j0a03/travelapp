@@ -14,8 +14,10 @@ function Card(props){
       props.deletarViagem(id)
     },700)
     props.setEditID(null)
+   
   }
   const setEditing = ()=>{
+    props.acharViagem(id)
     props.setEditID(id)
   }
     return (
