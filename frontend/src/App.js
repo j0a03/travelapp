@@ -38,6 +38,7 @@ function App(){
     e.preventDefault()
     cadastrarViagem(travel)
   }
+  console.log(viagens);
   return(
       <div>
         <Form
@@ -47,16 +48,14 @@ function App(){
         />
       <div className='cards'>
         {
-          viagens.map(v=>
-            <Card
-              deletarViagem = {deleteTravel}
-              nome={v.nome}
-              id={v.id}
-              data={v.data}
-              desc={v.desc}
-              price={v.price}
-            />
-          )
+          viagens.map(v=><Card
+            deletarViagem = {deleteTravel}
+            nome={v.nome}
+            id={v.id}
+            data={v.data}
+            desc={v.desc}
+            price={v.price}
+          />)
         }
         </div>
       </div>

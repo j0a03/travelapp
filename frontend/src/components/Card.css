@@ -21,3 +21,37 @@
 .card:hover{
     border: 1px solid #BF9460
 }
+#trashDelete:hover{
+    color: red;
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.disappear{
+    animation: disappear 0.7s ease-out forwards;
+}
+@keyframes disappear{
+    0%{
+        opacity: 1;
+    }
+    20%{
+        opacity: 0.8;
+    }
+    40%{
+        opacity: 0.6;
+    }
+    60%{
+        opacity: 0.4;
+    }
+    80%{
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 0.0;
+    }
+
+
+}

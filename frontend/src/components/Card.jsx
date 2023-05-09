@@ -1,19 +1,44 @@
 import "./Card.css"
 import {BsFillTrashFill} from 'react-icons/bs'
+import { FormatarData } from "../fn-helpers/Data"
+import { useState } from "react"
+
 function Card(props){
   const {id, data, desc, price} = props
+  const dataFormatada = FormatarData(data);
+  const [isDelete, setIsDelete] = useState(false)
+  const deleteMode=()=>{
+    setIsDelete(true);
+    setTimeout(()=>{
+      props.deletarViagem(id)
+    },700)
+
+  }
     return (
-        <div className="card">
+        <div className={isDelete? 'card disappear' : 'card'}>
             <h1>{props.nome}</h1>
             <div>
-              <p>{data}</p>
+              <p>{dataFormatada}</p>
               <p>{desc}</p>
               <p>{price}</p>
             </div>
             <div className="lixeira" >
-              <button onClick={()=>props.deletarViagem(id)}>
+              <div className="btns">
+                <div
+                  onClick={()=>deleteMode()}
+                  id="trashDelete"
+                  className="icons"
+                >
+                  <BsFillTrashFill size={32}/>
+                </div>
+              <div id="trashDelete" onClick={()=>props.deletarViagem(id)}>
                 <BsFillTrashFill size={32}/>
-              </button>
+              </div>
+              <div>
+
+              </div>
+              </div>
+
             </div>
         </div>
     )
