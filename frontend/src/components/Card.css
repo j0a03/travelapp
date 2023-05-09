@@ -12,11 +12,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: center;
+    font-size: 1.4rem;
+    text-align: center;
 }
 .card h1{
     color:#D9BC66;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     text-align: center;
+}
+.card div p{
+    color:#D9BC66;
 }
 .card:hover{
     border: 1px solid #BF9460

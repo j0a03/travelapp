@@ -18,7 +18,14 @@ class Api::V1::TravelsController < ApplicationController
   end
 
   def update
+    @travel = Travel.find(params[:id])
+    if @travel.update(travel_params)
+      render json: @travel
+    else
+      render json: {message: "nao foi possivel atualizar"},status: :unprocessable_entity
+    end
   end
+
 
   def destroy
     @travel = Travel.find(params[:id])
