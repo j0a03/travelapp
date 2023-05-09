@@ -2,6 +2,7 @@ import "./Card.css"
 import {BsFillTrashFill} from 'react-icons/bs'
 import { FormatarData } from "../fn-helpers/Data"
 import { useState } from "react"
+import {FiEdit} from "react-icons/fi"
 
 function Card(props){
   const {id, data, desc, price} = props
@@ -12,7 +13,10 @@ function Card(props){
     setTimeout(()=>{
       props.deletarViagem(id)
     },700)
-
+    props.setEditID(null)
+  }
+  const setEditing = ()=>{
+    props.setEditID(id)
   }
     return (
         <div className={isDelete? 'card disappear' : 'card'}>
@@ -31,10 +35,8 @@ function Card(props){
                 >
                   <BsFillTrashFill size={32}/>
                 </div>
-              <div id="trashDelete" onClick={()=>props.deletarViagem(id)}>
-                <BsFillTrashFill size={32}/>
-              </div>
-              <div>
+              <div onClick={()=>setEditing()} className="icons">
+                <FiEdit size={32}/>
 
               </div>
               </div>

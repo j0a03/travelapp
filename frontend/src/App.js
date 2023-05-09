@@ -16,7 +16,7 @@ function App(){
       .then(res=>setViagens(res.data))
       .catch(erro=> setViagens("deu erro no getAPI: ",erro))
   },[])
-
+  const [editID,setEditID] = useState([])
   const cadastrarViagem=(travel)=>{
     axios.post("http://localhost:3001/api/v1/travels",{travel})
       .then(res=>{
@@ -42,6 +42,7 @@ function App(){
   return(
       <div>
         <Form
+          id={editID}
           travel={travel}
           setTravel={setTravel}
           EnvioFormulario={EnvioFormulario}        
@@ -49,12 +50,14 @@ function App(){
       <div className='cards'>
         {
           viagens.map(v=><Card
+          key={v.id}
             deletarViagem = {deleteTravel}
             nome={v.nome}
             id={v.id}
             data={v.data}
             desc={v.desc}
             price={v.price}
+            setEditID={setEditID}
           />)
         }
         </div>
