@@ -36,7 +36,15 @@ function App(){
   }
   const editTravel = (id,travel)=>{
     axios.put(`http://localhost:3001/api/v1/travels/${id}`,{travel})
-      .then(res=>console.log(res))
+      .then(res=>{
+        let newListaDeViagens = viagens.map ( v=>{
+          if(v.id === id){
+            return res.data
+          }
+          return v
+        })
+        setViagens(newListaDeViagens)
+      })
       .catch(erro=>console.log("erro atualizado"))
   }
   function EnvioFormulario(e){
