@@ -36,17 +36,20 @@ function App(){
   }
   function EnvioFormulario(e){
     e.preventDefault()
+    if(editID !== -1){
+      console.log("era para estar editando")
+      setEditID(-1)
+      setTravel({
+        nome: '',
+        data: '',
+        desc: '',
+        price: ''
+      })
+      return
+    }
     cadastrarViagem(travel)
   }
-  function acharViagem(id){
-    let viagemAtual = viagens.filter(v =>v.id === id)[0]
-    setTravel({
-      nome: viagemAtual.nome,
-      data: viagemAtual.travel,
-      desc: viagemAtual.desc,
-      price: viagemAtual.price
-    })
-  }
+
   return(
       <div>
         <Form
