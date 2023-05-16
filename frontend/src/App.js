@@ -16,7 +16,7 @@ function App(){
       .then(res=>setViagens(res.data))
       .catch(erro=> setViagens("deu erro no getAPI: ",erro))
   },[])
-  const [editID,setEditID] = useState([])
+  const [editID,setEditID] = useState(-1)
   const cadastrarViagem=(travel)=>{
     axios.post("http://localhost:3001/api/v1/travels",{travel})
       .then(res=>{
@@ -38,9 +38,8 @@ function App(){
     e.preventDefault()
     cadastrarViagem(travel)
   }
-  const [viagemAtual, setViagemAtual] = useState({})
   function acharViagem(id){
-    setViagemAtual(viagens.filter(v =>v.id === id)[0])
+    let viagemAtual = viagens.filter(v =>v.id === id)[0]
     setTravel({
       nome: viagemAtual.nome,
       data: viagemAtual.travel,
@@ -53,7 +52,6 @@ function App(){
         <Form
           id={editID}
           travel={travel}
-          viagemAtual={viagemAtual}
           setTravel={setTravel}
           EnvioFormulario={EnvioFormulario}        
         />
@@ -61,7 +59,7 @@ function App(){
         {
           viagens.map(v=><Card
           key={v.id}
-            acharViagem={acharViagem}
+            setTravel={setTravel}
             deletarViagem = {deleteTravel}
             nome={v.nome}
             id={v.id}

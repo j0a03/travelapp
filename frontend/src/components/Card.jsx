@@ -17,7 +17,12 @@ function Card(props){
    
   }
   const setEditing = ()=>{
-    props.acharViagem(id)
+    props.setTravel({
+      nome: props.nome,
+      data: data,
+      desc: desc,
+      price: price
+    })
     props.setEditID(id)
   }
     return (
