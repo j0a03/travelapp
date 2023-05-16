@@ -40,7 +40,7 @@ function Form({travel,EnvioFormulario,setTravel,id}) {
           />
 
 
-          <button type='submit'>Cadastrar Viagem</button>
+          <button type='submit'>{id === -1 ?"Cadastrar" : "Editar"}</button>
         </form>
         </div>
     )
