@@ -16,7 +16,7 @@ class Api::V1::TravelsController < ApplicationController
     else
       render json: {errors: @travel.errors,message: "nao foi possivel cadastrar"},status: :unprocessable_entity
     end
-      
+    
   end
 
   def update
@@ -37,6 +37,6 @@ class Api::V1::TravelsController < ApplicationController
 
   private
     def travel_params
-      params.require(:travel).permit(:nome, :data, :price, :desc)
+      params.require(:travel).permit(:nome, :data, :price, :desc, :image)
     end
 end
