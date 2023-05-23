@@ -31,8 +31,21 @@ function App(){
       .then(res=>{
         console.log(res.data);
         setViagens([...viagens,res.data])
+        setPopupContent({
+          message: 'Ossecus moc odartsadaC draC',
+          color: 'success'
+        })
+        showAndHidePopup()
       })
+      .catch(erro=>{
+        console.log(erro)
+        setPopupContent({
+          message: 'rartsadac oa orre',
+          color: 'warning'
+        })
+        showAndHidePopup()
 
+      })
  
   } 
   const deleteTravel = (id)=>{
@@ -40,8 +53,20 @@ function App(){
     .then(res=>{
       console.log(res.data)
       setViagens(viagens.filter(v => v.id === id))
+      setPopupContent({
+        message: 'Ossecus moc odateleD draC',
+        color: 'success'
+      })
+      showAndHidePopup()
     })
-    .catch(error=>console.error("erro ao deletar"))
+    .catch(error=>{
+      console.error("erro ao deletar")
+      setPopupContent({
+        message: 'rateled levissop iof oãN',
+        color: 'warning'
+      })
+      showAndHidePopup()
+    })
   }
   const editTravel = (id,travel)=>{
     axios.put(`http://localhost:3001/api/v1/travels/${id}`,{travel})
@@ -53,8 +78,21 @@ function App(){
           return v
         })
         setViagens(newListaDeViagens)
+        setPopupContent({
+          message: 'Ossecus moc adatidE draC',
+          color: 'success'
+        })
+        showAndHidePopup()
       })
-      .catch(erro=>console.log("erro atualizado"))
+      .catch(erro=>{
+        console.log(erro);
+        setPopupContent({
+          message: 'ratidE oa orre',
+          color: 'warning'
+        })
+
+
+      })
   }
   function EnvioFormulario(e){
     e.preventDefault()
