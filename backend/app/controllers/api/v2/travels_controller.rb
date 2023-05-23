@@ -1,4 +1,4 @@
-class Api::V1::TravelsController < ApplicationController
+class Api::V2::TravelsController < ApplicationController
   def index
     @travels = Travel.all
     render json: @travels
