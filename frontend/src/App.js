@@ -131,6 +131,7 @@ function App(){
             desc={v.desc}
             price={v.price}
             setEditID={setEditID}
+            image_url={v.image_url}
           />)
         }
         {
