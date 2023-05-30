@@ -2,6 +2,8 @@
 .card{
     width: 256px;
     min-height: 400px;
+    min-height: 500px;
+    max-height: 500px;
     background-color: #3F3D40;
     color: #A68A56;
     border: 1px solid #BF9460;
@@ -60,4 +62,9 @@
     }
 
 
+}
+.imageViagem{
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
 }
