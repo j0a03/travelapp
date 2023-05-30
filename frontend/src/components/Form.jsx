@@ -63,7 +63,7 @@ function Form({travel,EnvioFormulario,setTravel,id}) {
             id="image"
             required
             accept='image/*'
-            onChange={(e)=>setTravel({..travel,image: e.target.files[0]})}
+            onChange={(e)=>setTravel({...travel,image: e.target.files[0]})}
           
           />
 
