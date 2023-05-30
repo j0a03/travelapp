@@ -1,6 +1,25 @@
 import './Form.css';
-
+import { useState,useEffect } from 'react';
 function Form({travel,EnvioFormulario,setTravel,id}) {
+
+    useEffect(()=>{
+      const fileInput = document.getElementById("image");
+      const imageLabel = document.getElementById("imageLabel");
+      fileInput.addEventListener("change",function(){
+        if(fileInput.files.length >0 && fileInput.files[0].type.startsWith("image/")){
+          const reader = new FileReader();
+          reader.onload - function(event){
+            imageLabel.innerHTML = ''
+            imageLabel.style.backgroundImage = `url(${event.target.result})`;
+          }
+          reader.readAsDataURL(fileInput.files[0])
+        }else{
+          imageLabel.style.backgroundImage = "";
+          imageLabel.innerHTML = "Envie sua imagem"
+        }
+        
+      })
+    },[])
     return (
         <div className='divForm'>
             <form onSubmit={EnvioFormulario}>
@@ -37,6 +56,15 @@ function Form({travel,EnvioFormulario,setTravel,id}) {
             value={travel.price}
             placeholder="Preço"
             type="number"       
+          />
+          <label htmlFor='image' id='imageLabel' className='imageLabel'>Envie sua imagem</label>
+          <input
+            type='file'
+            id="image"
+            required
+            accept='image/*'
+            onChange={(e)=>setTravel({..travel,image: e.target.files[0]})}
+          
           />
 
 
