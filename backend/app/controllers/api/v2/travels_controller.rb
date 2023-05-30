@@ -1,7 +1,10 @@
 class Api::V2::TravelsController < ApplicationController
   def index
     @travels = Travel.all
-    render json: @travels
+    serialized_travels = @travels.map do |travel|
+      TravelSerializer.new(travel).serializable_hash[:data][:attributes] 
+    end
+    render json: serialized_travels
   end
 
   def show
@@ -12,7 +15,7 @@ class Api::V2::TravelsController < ApplicationController
   def create
     @travel = Travel.new(travel_params)
     if @travel.save
-      render json: @travel
+      render json: TravelSerializer.new(@travel).serializable_hash[:data][:attributes]
     else
       render json: {errors: @travel.errors,message: "nao foi possivel cadastrar"},status: :unprocessable_entity
     end
@@ -37,6 +40,6 @@ class Api::V2::TravelsController < ApplicationController
 
   private
     def travel_params
-      params.require(:travel).permit(:nome, :data, :price, :desc)
+      params.require(:travel).permit(:nome, :data, :price, :desc, :image)
     end
 end
