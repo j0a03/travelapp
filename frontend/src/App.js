@@ -8,7 +8,8 @@ function App(){
     nome: '',
     data: '',
     price: 0,
-    desc: ''
+    desc: '',
+    image: null
   })
   const[showPopup,setShowPopup] = useState(false);
   const [viagens,setViagens] = useState([]);
@@ -26,11 +27,22 @@ function App(){
       .catch(erro=> setViagens("deu erro no getAPI: ",erro))
   },[])
   const [editID,setEditID] = useState(-1)
-  const cadastrarViagem=(travel)=>{
-    axios.post("http://localhost:3001/api/v2/travels",{travel})
+  const cadastrarViagem=(formData)=>{
+    axios.post("http://localhost:3001/api/v2/travels",formData,{
+      headears: {
+        'Content-Type' : 'multipart/form-data',
+      },
+    })
       .then(res=>{
         console.log(res.data);
         setViagens([...viagens,res.data])
+        setTravel({
+          nome: '',
+          data: '',
+          price: '',
+          desc: '',
+          image: null
+        })
         setPopupContent({
           message: 'Ossecus moc odartsadaC draC',
           color: 'success'
@@ -108,7 +120,13 @@ function App(){
       })
       return
     }
-    cadastrarViagem(travel)
+    const formData = new FormData();
+    formData.append('travel[image]',travel.image)
+    formData.append('travel[nome]',travel.nome)
+    formData.append('travel[desc]',travel.desc)
+    formData.append('travel[price]',travel.price)
+    formData.append('travel[data]',travel.data)
+    cadastrarViagem(formData)
   }
 
   return(

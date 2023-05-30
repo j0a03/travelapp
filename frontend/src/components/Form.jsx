@@ -8,7 +8,7 @@ function Form({travel,EnvioFormulario,setTravel,id}) {
       fileInput.addEventListener("change",function(){
         if(fileInput.files.length >0 && fileInput.files[0].type.startsWith("image/")){
           const reader = new FileReader();
-          reader.onload - function(event){
+          reader.onload = function(event){
             imageLabel.innerHTML = ''
             imageLabel.style.backgroundImage = `url(${event.target.result})`;
           }
