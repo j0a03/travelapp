@@ -69,7 +69,7 @@ function App(){
     })
   }
   const editTravel = (id,travel)=>{
-    axios.put(`http://localhost:3001/api/v1/travels/${id}`,{travel})
+    axios.put(`http://localhost:3001/api/v2/travels/${id}`,{travel})
       .then(res=>{
         let newListaDeViagens = viagens.map ( v=>{
           if(v.id === id){
